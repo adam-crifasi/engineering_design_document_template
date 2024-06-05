@@ -1,0 +1,57 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+
+\begin{document}
+
+	\subsection{Code Excerpts}
+	\label{sec:codeexcerpts}
+	
+	This class utilizes the \textit{tcolorbox} package to provide a clean outline for code excerpts.  Color coding can be a bit of a pain.
+	
+	\begin{tcolorbox}[colback=Gray!5!white,colframe=Gray!75!black,title=Enable LaTeX Typesetting in Matplotlib]
+		\begin{alltt}
+			plt.rcParams.update({
+				\textcolor{OliveGreen}{# Activating text rendering by LaTeX}
+				"text.usetex": True,
+				"font.family": "monospace",
+				"font.monospace": 'Computer Modern Typewriter',
+				\textcolor{OliveGreen}{# Setting default figure size 8"x3"}
+				"figure.figsize": [8,3]
+			})
+		\end{alltt}
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colback=Gray!5!white,colframe=Gray!75!black,title=Export Figure as *.eps]
+		\begin{alltt}
+			plt.tight_layout()
+			plt.show()
+			fig.savefig('figures/sine.eps')
+		\end{alltt}
+	\end{tcolorbox}
+	
+	
+	\subsection{URLs}
+	
+	URLs can be inserted with the textit{href{}} command.  If there's a need for other packages to help streamline the documentation process, head over to \href{https://ctan.org/}{Comprehensive TeX Archive Network (CTAN)}.
+	
+	\subsection{Equations}
+	
+	Nothing special about the equations in this class.\footnote{Here's an example of how to footnote.}  The standard \LaTeX{} equation formatting is used.  Be sure to use the \textit{label{}} command in order to reference the equations individually.
+	
+	The roots of a quadratic equation can be found using Equation (\ref{eq:quad0}), with the coefficients defined in Equation \ref{eq:quad1}.
+	
+	\begin{equation}\label{eq:quad0}
+		x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+	\end{equation}
+	\begin{equation}\label{eq:quad1}
+		ax^2+bx+c=0
+	\end{equation}
+
+	
+	\subsection{Bibliography}
+	
+	The bibliography is declared at the end in Section \ref{sec:bib}.  This class uses the \textit{plain} style bibliography.  The bibliography entries should be added in an external file \textit{bib.bib}.  Entries in this file will only appear in the final bibliography if they are referenced in the paper\cite{Overleaf}.  If you've never used BibTeX before, you should be pleasantly surprised how easy it is to cite documents.  Many academic websites (eg: ieeexplore) have BibTeX entries already formatted to be copy/pasted, like in Figure \ref{fig:bibtexexample} below\cite{9087123}.
+	
+	\boxfigfullmargin{bibtexexample}{BibTex Example}{fig:bibtexexample}
+
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+
+\begin{document}
+
+	\subsection{Standard Full Margin Figure}
+	
+	\boxfigfullmargin{sine}{Sinusoid - Full Margin}{fig:sine0}
+	
+	There are several plotting routines included in the class.  This style should be used most often.  It provides a clear, margin-to-margin layout with thin-lined border.  The plot can be referenced using the typical \LaTeX{} style, as in, "please refer to Figure \ref{fig:sine0}".  
+	
+	\subsection{Half Margin Figure}
+	
+	\boxfighalfmargin{sine}{Sinusoid - Half Margin}{fig:sine1}
+	
+	The second plotting routine mimics this first, only it is half-margin instead of full.
+	
+	\subsection{Figure Quad-Box}
+	
+	\boxquadfig{taps1}{taps2}{filtereddatafft1}{filtereddatafft2}{Root-Raised Cosine Filter ($beta = 0.05$) - Quad Box}{fig:quadbox}
+	
+	The last plotting routine is a template to plot 4 figures in a single outlined box.
+	
+	\subsection{Block Diagrams and Flow Charts}
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[node distance=1.5cm, align=center]
+			\node (start)             	[process]              {start};
+			\node (end)     			[process, below of=start]          {end};
+			\draw[->]             		(start) -- (end);
+		\end{tikzpicture}
+		\caption{TikZ Flow Chart}
+		\label{fig:tikz}
+	\end{figure}
+	
+	
+	Block diagrams and flow charts can be produced using \textit{tikz}.
+	
+	\subsection{Plotting Suggestions}
+	
+	In the spirit of producing a uniform design document, it is suggested that when plotting using Python's Matplotlib, the following rules should be$\ldots$ followed.  See Section \ref{sec:codeexcerpts} for example Python code for each of the suggestions below.
+	
+	\begin{enumerate}
+		\item Use the \LaTeX{} formatter for the figures.  This allows for \LaTeX{} equation editor to be used directly in the axis labels, title, legend, etc.
+		\item Export the plot as *.eps.  This is a vector image format, which will preserve the highest quality plot and text on the figure.  The \LaTeX{} package \textit{epstopdf} will automagically convert the eps file to a pdf of the exact size required for the document at compile time.\footnote{file size can sometimes become an issue with eps files, so render as png as necessary}
+		\item Figure size should be set to clearly convey all the information.  Do not worry if diagrams or plots seem to take up a lot of space.  That being said, the ratio of WxL of the figure should be considered in order to utilize the space most effectively.
+	\end{enumerate}	
+
+\end{document}

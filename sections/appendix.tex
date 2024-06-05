@@ -1,0 +1,51 @@
+\appendix
+
+This is the appendix.  The section numbering structure switches to alphabet for clarity.
+
+\section{Symbol Descriptions}
+\label{sec:symboldescriptions}
+
+	\begin{table}[h]
+		\begin{center}
+			\caption{Symbol Descriptions}
+			\begin{tabular}{|c|l|}
+				\hline
+				\textbf{Symbol} & \textbf{Description} \\
+				\hline
+				\hline
+				\ $\lambda$ & wavelength \\
+				\hline
+				$f$ & frequency \\
+				\hline
+				$\mu$ & mean \\
+				\hline
+				$\delta$ & difference \\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{table}
+
+\section{Code Excerpts}
+	\label{sec:ccode}
+	\begin{tcolorbox}[colback=Gray!5!white,colframe=Gray!75!black,title=Linear Equation - Solve for $x$]
+		\begin{alltt}
+			\textcolor{OliveGreen}{// solve for x}
+			x  =  (y - b) / m;
+		\end{alltt}
+	\end{tcolorbox}
+	
+	\begin{tcolorbox}[colback=Gray!5!white,colframe=Gray!75!black,title=Hello World]
+		\begin{alltt}
+			\textcolor{Plum}{#include <stdio.h>}
+			int main() \{
+			\textcolor{OliveGreen}{// printf() displays the string inside quotation}
+			printf("Hello, World!");
+			return 0;
+			\}
+		\end{alltt}
+	\end{tcolorbox}
+
+\section{Bibliography}
+	\label{sec:bib}
+	\bibliographystyle{plain} % We choose the "plain" reference style
+	\bibliography{bib.bib} % Entries are in the refs.bib file

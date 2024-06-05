@@ -1,0 +1,32 @@
+
+
+Tables are also vanilla in this class.  Tables are probably the most annoying aspect of \LaTeX{}, but luckily, there are many resources, both built into the \LaTeX{} editors and \href{https://www.google.com/search?q=latex+table+builder}{online}, to build up tables graphically.  Also, while we're here, note the use of the \textit{cellcolor{}} to indicate pass$\backslash$fail for each test.
+
+\begin{table}[H]
+	\begin{center}
+		\caption{Sample Test Results}
+		\label{tab:SoMresults}
+		\begin{tabular}{|c||c|c|c|l|}
+			\hline
+			& Min 		& Max 		& Result 	& Notes \\
+			& Bitrate 	& BER 		& 			& \\
+			\hline
+			Pass$\backslash$Fail  	& $1 \ Mbps$ 	& \num{1e-6} 	& \textit{N/A} 	& \textit{maxima/minima from modeling} \\
+			& & & & \textit{implementation and transponder limitations} \\
+			\hline
+			Test 1 & $0.8 \ Mbps$ & \num{5e-6}  & \cellcolor[HTML]{FFCCC9}Fail & \textit{thunderstorms throughout the pass} \\
+			\hline
+			Test 2 & $2.8 \ Mbps$ & \num{2e-6}  & \cellcolor[HTML]{FFFFC7}Fail & \textit{limited by FPGA QPSK demodulator} \\
+			& & & & \textit{\hspace{10mm} Rx measurement algorithm} \\
+			& & & & \textit{adaptive data rate function} \\
+			& & & & \textit{\hspace{10mm} under-estimated Rx SNR\tablefootnote{here's a footnote within a table!}} \\
+			\hline
+			Test 3 & $1.5 Mbps$ & \num{300e-9}  & \cellcolor[HTML]{9AFF99}Pass & \textit{great pass, much success} \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+
+

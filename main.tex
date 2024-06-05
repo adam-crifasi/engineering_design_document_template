@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+\usepackage{palatino}
+
+\newcommand{\boxfigfullmargin}[3]{
+	\begin{figure}[H]
+		\centering
+		\setlength{\fboxsep}{2pt}%
+		\setlength{\fboxrule}{1pt}%
+		\fbox{\includegraphics[width=0.95\linewidth]{#1}}%
+		\caption{\textbf{#2}}
+		\label{#3}
+	\end{figure}
+}
+
+\newcommand{\boxfighalfmargin}[3]{
+	\begin{figure}[H]
+		\centering
+		\setlength{\fboxsep}{2pt}%
+		\setlength{\fboxrule}{1pt}%
+		\fbox{\includegraphics[width=0.5\linewidth]{#1}}%
+		\caption{\textbf{#2}}
+		\label{#3}
+	\end{figure}
+}
+
+\newcommand{\boxquadfig}[6]{
+	\begin{figure}[H]
+		\centering
+		\begin{adjustbox}{varwidth=\textwidth,fbox,center}
+			\begin{subfigure}{0.48\linewidth}
+				\includegraphics[width=\linewidth]{#1}
+			\end{subfigure}
+			\begin{subfigure}{0.48\linewidth}
+				\includegraphics[width=\linewidth]{#2}
+			\end{subfigure}
+			\vfill
+			\begin{subfigure}{0.48\linewidth}
+				\includegraphics[width=\linewidth]{#3}
+			\end{subfigure}
+			\begin{subfigure}{0.48\linewidth}
+				\includegraphics[width=\linewidth]{#4}
+			\end{subfigure}
+		\end{adjustbox}
+		\caption{\textbf{#5}}
+		\label{#6}
+	\end{figure}
+}
+
+%list packages and format styles
+\usepackage[bf]{caption}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{epstopdf}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{tabu}
+\usepackage{multicol}
+\usepackage[bottom]{footmisc}
+\usepackage{adjustbox}
+\usepackage[table,xcdraw,dvipsnames]{xcolor}
+\usepackage{alltt}
+\usepackage{tcolorbox}
+\geometry{letterpaper,margin=1.0in,includefoot,headheight=10pt}
+%\usepackage[color={[gray]{0.9}},text=\bfseries DRAFT]{draftwatermark}
+\usepackage{pdflscape}
+
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+\usepackage{tablefootnote}
+\usepackage{siunitx}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{intersections,arrows.meta} 
+
+\usepackage{blindtext}
+
+\usepackage{subfiles} % Best loaded last in the preamble
+
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=blue,
+	citecolor=blue,
+}
+
+\tikzset{%
+	>={Latex[width=2mm,length=2mm]},
+	% Specifications for style of nodes:
+	base/.style = {rectangle, rounded corners, draw=black,
+		minimum width=4cm, minimum height=1cm,
+		text centered, font=\sffamily},
+	activityStarts/.style = {base, fill=blue!30},
+	startstop/.style = {base, fill=red!30},
+	activityRuns/.style = {base, fill=green!30},
+	process/.style = {base, minimum width=2.5cm, fill=orange!15,
+		font=\ttfamily},
+}
+
+\fancypagestyle{firststyle}
+{
+	\setlength{\headheight}{85pt}
+	\fancyhead[L]{\includegraphics[scale=0.1]{logos/company_logo}}
+%	\setlength{\headheight}{135pt}	
+	
+}
+
+\fancypagestyle{bodystyle}{
+		
+	\setlength{\headheight}{45pt}
+	\fancyhead[C]{\projacronym{} Design Document \\ Version \version}
+	\fancyhead[L]{\includegraphics[scale=0.05]{logos/company_logo}}
+
+	\fancyfoot[C]{\textcolor{gray}{Confidential Unclassified Information (CUI)}}
+	\fancyfoot[R]{\thepage}
+	
+}
+
+\titleformat*{\section}{\Large\bfseries\itshape}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+\titleformat*{\paragraph}{\normalsize\itshape}
+\titleformat*{\subparagraph}{\small\bfseries}
+
+% set the project name and acronym here
+\newcommand{\projname}{Template EXchange}
+\newcommand{\projacronym}{TEX}
+\newcommand{\version}{0.0}
+
+\title{\projname{} Design Document}
+\author{Version \version}
+
+%todo: set footer margin? https://tex.stackexchange.com/questions/503377/changing-headheight-pushes-footer-off-page
+%todo: includeheadfoot?  where to set margins?
+
+\begin{document}
+	\pagenumbering{roman}
+%----------------------------------------------------------------------------------------
+%title page
+	\pagestyle{firststyle}
+	\subfile{sections/titlepage}
+%----------------------------------------------------------------------------------------
+%versioning
+	\newpage
+	\section{Revision History}
+	\subfile{sections/version}
+%----------------------------------------------------------------------------------------	
+%table of contents
+	\newpage
+	\tableofcontents	
+%----------------------------------------------------------------------------------------	
+%list of figures
+	\newpage
+	\listoffigures
+%----------------------------------------------------------------------------------------	
+%list of tables
+	\newpage
+	\listoftables	
+%----------------------------------------------------------------------------------------	
+%body
+	\pagenumbering{arabic}
+	\pagestyle{bodystyle}
+	
+	\newpage
+	\section{Introduction}
+	\label{sec:intro}
+	\subfile{sections/intro}
+	
+	\newpage
+	\section{Figures}
+	\label{sec:figures}
+	\subfile{sections/figures}
+	
+	\newpage
+	\section{Special Text}
+	\label{sec:special_text}
+	\subfile{sections/specialtext}
+	
+	\newpage
+	\section{Tables}
+	\label{sec:tables}
+	\subfile{sections/tables}
+	
+	\section{Conclusions}
+	Go out there and get documentin'.
+%----------------------------------------------------------------------------------------	
+%appendix	
+	\subfile{sections/appendix}
+%----------------------------------------------------------------------------------------		
+\end{document}

@@ -1,0 +1,16 @@
+# Ignore these files extensions
+*.log
+*.pdf
+*.doc
+*.html
+*.out
+*.aux
+*.gz
+*.toc
+*.bbl
+*.blg
+*.asv
+*.xml
+*.bcf
+*.lof
+*.lot
